@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+{%extends 'centerhead/index.html'%}
+{%block body_block%}
+{%load static%}
+<div class="conatiner">
+    <div class="row">
+        <div class="col-4">
+            <div><a href="{%url 'telecallerhome'%}" class="ms-5">Home</a></div>
+            <div><img src="{%static '/images/img.png'%}" class="img-fluid" alt="..."></div>
+
+
+        </div>
+        <div class="col-8">
+            <form action="" method="post" class=" p-5 mt-5">
+                {%csrf_token%}
+                {{form.as_p}}
+                <input type="submit" value="Add Enquiry" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+    {%endblock%}

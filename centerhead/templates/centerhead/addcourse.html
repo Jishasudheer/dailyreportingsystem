@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{%extends 'centerhead/index.html'%}
+{%block body_block%}
+{%load static%}
+<link rel="stylesheet" href="{%static '/css/centerhead/addcourses.css'%}">
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <form action="" method="post" class="border border-success p-5">
+                {%csrf_token%}
+                {{form.as_p}}
+                <input type="submit" value="Add course">
+            </form>
+        </div>
+
+        <div class="col-6">
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-3"></div>
+        <div class="col-6 w-50">
+            <table class="border border-success">
+                <tr>
+                    <th>
+                        Course name
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+                {%for course in courses%}
+                <tr>
+                    <td>
+                        {{course.course}}
+                    </td>
+                    <td>
+                        <a href="{%url 'courseupdate' course.id%}">Update</a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+        <div class="col-">
+
+        </div>
+    </div>
+</div>
+{%endblock%}
